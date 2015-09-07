@@ -80,7 +80,7 @@ If you update the package.json file on the line that looks like:
 and change it to:
 
 ```
-"test": "./node_modules/mocha/bin/mocha -r ./scripts/main.js ./tests/**/*.js"
+"test": "./node_modules/mocha/bin/mocha ./tests/**/*.js"
 ```
 
 you should now be able to run `npm test` to run all of your unit tests.
