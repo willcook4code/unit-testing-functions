@@ -295,3 +295,34 @@ function absVal(integer) {
  *
  * Insane mode: do this without recursion.
  */
+
+/*
+ * Do not modify the code below
+ */
+module.exports = {
+	checkData: 				typeof checkData === 'undefined' ? undefined : checkData,
+	concatenateArrays: 		typeof concatenateArrays === 'undefined' ? undefined : concatenateArrays,
+	fixProperNoun: 			typeof fixProperNoun === 'undefined' ? undefined : fixProperNoun,
+	sortLetters: 			typeof sortLetters === 'undefined' ? undefined : sortLetters,
+	absVal: 				typeof absVal === 'undefined' ? undefined : absVal,
+	myMin: 					typeof myMin === 'undefined' ? undefined : myMin,
+	myMax: 					typeof myMax === 'undefined' ? undefined : myMax,
+	getMonth: 				typeof getMonth === 'undefined' ? undefined : getMonth,
+	randomElement: 			typeof randomElement === 'undefined' ? undefined : randomElement,
+	studentPairs: 			typeof studentPairs === 'undefined' ? undefined : studentPairs,
+	sumSquares: 			typeof sumSquares === 'undefined' ? undefined : sumSquares,
+	findMaxDiff: 			typeof findMaxDiff === 'undefined' ? undefined : findMaxDiff,
+	insertDashes: 			typeof insertDashes === 'undefined' ? undefined : insertDashes,
+	mySubstring: 			typeof mySubstring === 'undefined' ? undefined : mySubstring,
+	splitSwap: 				typeof splitSwap === 'undefined' ? undefined : splitSwap,
+	smallMultiples: 		typeof smallMultiples === 'undefined' ? undefined : smallMultiples,
+	rot13: 					typeof rot13 === 'undefined' ? undefined : rot13,
+	derot13: 				typeof derot13 === 'undefined' ? undefined : derot13,
+	rotn: 					typeof rotn === 'undefined' ? undefined : rotn,
+	findBoth: 				typeof findBoth === 'undefined' ? undefined : findBoth,
+	countBoth: 				typeof countBoth === 'undefined' ? undefined : countBoth,
+	isDiagonalMatrix: 		typeof isDiagonalMatrix === 'undefined' ? undefined : isDiagonalMatrix,
+	isAnagram: 				typeof isAnagram === 'undefined' ? undefined : isAnagram,
+	validateParentheses:	typeof validateParentheses === 'undefined' ? undefined : validateParentheses,
+	flattenArray: 			typeof flattenArray === 'undefined' ? undefined : flattenArray
+};
