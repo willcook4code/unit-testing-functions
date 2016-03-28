@@ -1,90 +1,31 @@
-# Unit Testing Functions
+## Explorer Mode
 
-## Description
-Unit test these functions before implementing them.
+1. Fork [this repository](https://github.com/TIY-Austin-Front-End-Engineering/unit-testing-functions) by clicking the fork button on the upper right corner of this page. This will copy the repository on to your GitHub account.
+1. Clone **the forked version** of the repository. When you copy the clone URL it should have your github username in it **not TIY-Austin-Front-End-Engineering**.
+1. Inside of your cloned project directory run `npm install`.
+1. Read through the `functions.js` file in your cloned repo. For each one of the functions described you should do the following:
+  1. Write comments that describe the arguments that are getting passed into the function (inputs). For each argument include...
+    * the type of data (string, number, boolean, array, object) that it should be
+    * one example valid value that could be passed in to that argument
+  1. Write comments that describe the return value of the function, what type should it be?
+  1. Add, commit, and push your code
+  1. Create a new file to test that function inside of the test directory. Write out at least three unit tests for the function.
+  1. Add, commit, and push your code
+  1. Write out comments that describe how to implement the function. How will you use the provided inputs to achieve the desired output?
+  1. Write code to implement the function.
+  1. Test your code against your unit tests by running `npm test`. All of your tests should pass.
+  1. Test your code against the instructor provided unit tests by running `npm run instructor-tests`. All of the tests should pass.
 
-
-## Objectives
-
-### Learning Objectives
-
-After completing this assignment, you should…
-
-* Understand why and how we use unit tests
-* Gain more experience implementing JavaScript functions
-
-
-### Performance Objectives
-
-After completing this assignment, you be able to effectively use
-
-* mocha unit testing library
-* chai assertion library
-
-
-## Details
-
-### Deliverables
-
-* A repo containing at least:
-  * `main.js`
-  * `tests/checkData.test.js`
-  * `tests/concatenateArrays.test.js`
-  * `tests/fixProperNoun.test.js`
-  * `tests/sortLetters.test.js`
-  * `tests/absVal.test.js`
-  * `tests/myMin.test.js`
-  * `tests/myMax.test.js`
-  * `tests/getMonth.test.js`
-  * `tests/randomElement.test.js`
-  * `tests/studentPairs.test.js`
-  * `tests/sumSquares.test.js`
-  * `tests/findMaxDiff.test.js`
-  * `tests/insertDashes.test.js`
-  * `tests/mySubstring.test.js`
-
-### Requirements
-
-* No ESLint warnings or errors
-
-
-## Normal Mode
-1. Fork this repository by clicking the fork button on the upper right corner of this page. This will copy the repository on to your GitHub account.
-2. Clone **the forked version** of the repository. When you copy the clone URL it should have your github username in it **not TIY-Austin-Front-End-Engineering**.
-3. Read through the scripts/main.js file in your cloned repo. Develop an understanding of what each function is supposed to do based on the comments.
-4. For each function write out with pen and paper the arguments that are getting passed into the function. For each argument write out...
-	* the type of data (string, number, boolean, array, object) that it should be
-	* one example valid value that could be passed in to that argument
-5. For each function write out with pen and paper
-	* in english: what should be returned from the function?
-	* what type should the return value be?
-	* one example of a valid return value
-6. Install mocha and chai by running the command `npm install --save-dev mocha chai`
-7. Develop unit tests for all of the functions labeled (normal)
-8. Commit your unit tests and push to GitHub
-9. Implement each of the functions.
-            
-## Hard Mode
-Develop unit tests for, and implement the functions labeled (hard)
-            
-## Nightmare Mode
-Develop unit tests for, and implement the functions labeled (nightmare)
-
-## Notes
-If you update the package.json file on the line that looks like:
-
-```
-"test": "echo \"Error: no test specified\" && exit 1"
-```
-
-and change it to:
-
-```
-"test": "./node_modules/mocha/bin/mocha ./tests/**/*.js"
-```
-
-you should now be able to run `npm test` to run all of your unit tests.
-
-## Additional Resources
-
-* Read []()
+##### What to Submit
+* Link:
+  * A link to a repo containing:
+    * index.html
+    * main.js
+    * .surgeignore with contents of `!node_modules/`
+* Notes:
+  * Your confidence level for this assignment, 0-5. (0 is no confidence, 5 is master)
+  * Less than 5? Submit 1 question and 1 answer on Breadcrumbs and include a link to them.
+  * 5? Great! Submit 2 answers on Breadcrumbs and include a link to them.
+  * Did you complete at least "Explorer Mode"?
+  * If no, briefly explain why not.
+  * If yes, how far past Explorer did you get?

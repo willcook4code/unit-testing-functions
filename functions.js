@@ -1,5 +1,3 @@
-'use strict';
-
 /*
  * PROBLEM `checkData`: (normal)
  * Write a function that takes a string and checks to make sure that the string
