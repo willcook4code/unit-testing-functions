@@ -7,8 +7,15 @@
  * If the input is invalid throw an 'Invalid Input' exception.
  */
 function checkData(inputString) {
+	if (typeof inputString !== 'string') {
+		throw new Error('Invalid Input');
+	}
 	// Input: A string, Ex: 'cat'
-
+	if (inputString.length === 3) {
+		return true;
+	} else {
+		return false;
+	}
 	// Output: A boolean, Ex: ('cat' === true, 'mouse' === false)
 }
 
@@ -20,8 +27,16 @@ function checkData(inputString) {
  * If the input is invalid throw an 'Invalid Input' exception.
  */
 function concatenateArrays(a, b) {
+	if (Array.isArray(a) === false) {
+		throw new Error('Invalid Input');
+	}
+	if (Array.isArray(b) === false) {
+		throw new Error('Invalid Input');
+	}
 	// Input: 2 arrays, Ex: a = ['The cat chases'], b = ['the mouse.']
-
+	var a = a, b = b;
+	var ab = a.concat(b);
+	return ab;
 	// Output: 1 array of 2 elements, Ex: c = ['The cat chases', 'the mouse.']
 }
 
@@ -35,8 +50,17 @@ function concatenateArrays(a, b) {
  * If the input is invalid throw an 'Invalid Input' exception.
  */
 function fixProperNoun(noun) {
+	if (noun.length === 0) {
+		throw new Error('Invalid Input');
+	}
+	if (typeof noun !== 'string') {
+		throw new Error('Invalid Input');
+	}
 	// Input: 1 string, Ex: 'FLORIDA'
-
+	var smallNoun = noun.toLowerCase();
+	var upper = smallNoun.charAt(0).toUpperCase();
+	var lowers = smallNoun.substring(1, noun.length);
+	return (upper+lowers);
 	// Output: 1 string, Ex: 'Florida'
 }
 
@@ -48,9 +72,19 @@ function fixProperNoun(noun) {
  * If the input is invalid throw an 'Invalid Input' exception.
  */
 function sortLetters(inputString) {
+	if (inputString.length === 0) {
+		throw new Error('Invalid Input');
+	}
+	if (typeof inputString !== 'string') {
+		throw new Error('Invalid Input');
+	}
 	// Input: 1 String, Ex: 'mouse'
-
-	// Output: 1 String, Ex: 'eomsu'
+	var tinyString = inputString.toLowerCase();
+	var strArr = tinyString.split('');
+	var sorted = strArr.sort('');
+	var joined = sorted.join('').trim();
+	return joined;
+	// Output: 1 String, Ex: 'emosu'
 }
 
 /*
@@ -61,9 +95,17 @@ function sortLetters(inputString) {
  * If the input is invalid throw an 'Invalid Input' exception.
  */
 function absVal(integer) {
+	if (isNaN(integer)) {
+		throw new Error('Invalid Input');
+	}
 	// Input: 1 number, Ex: -6
-
+	if (integer < 0) {
+	var fromZero = (0 - integer);
 	// Output: 1 number, Ex: 6
+	return fromZero;
+	} else {
+		return integer;
+	}
 }
 
 /*
@@ -74,8 +116,15 @@ function absVal(integer) {
  * If the input is invalid throw an 'Invalid Input' exception.
  */
 function myMin(intA, intB) {
+	if ((isNaN(intA)) || (isNaN(intB))) {
+		throw new Error('Invalid Input');
+	}
 	// Input: 2 numbers, Ex: intA = 3, intB = 8
-
+	if (intA > intB) {
+		return intB;
+	} else {
+		return intA;
+	}
 	// Output: 1 number, Ex: 3
 }
 
@@ -90,9 +139,24 @@ function myMin(intA, intB) {
  */
 
 function myMax(numList) {
-	// Input: An array, Ex: [3, 6, 4, 9, 1]
-
-	// Output: 1 number, Ex: 9
+	if (Array.isArray(numList) === false) {
+		throw new Error('Invalid Input');
+	}
+	var numTotal = numList.reduce(function(previousVal, currentVal) {
+  		return previousVal + currentVal;
+	});
+	if (isNaN(numTotal)) {
+		throw new Error('Invalid Input');
+	}
+	var largest = 0;
+	for (var i = 0; i < numList.length; i++) {
+		
+		if (numList[i] > largest) {
+			largest = numList[i];
+		}
+	}
+	return largest;
+ 	// Output: 1 number, Ex: 9
 }
 
 /*
@@ -107,10 +171,15 @@ function myMax(numList) {
  * If the input is invalid throw an 'Invalid Input' exception.
  */
 
-function getMonth() {
+function getMonth(ofTwelve) {
+	if (isNaN(ofTwelve)) {
+		throw new Error('Invalid Input');
+	}
+	var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 	// Input: A number, Ex: 4
-
+	var month = months[ofTwelve - 1];
 	// Output: A string, Ex: April
+	return month;
 }
 
 /*
@@ -119,8 +188,16 @@ function getMonth() {
  * returns one randomly selected value from that array.
  */
 
-function randomElement() {
+function randomElement(arr) {
 	// Input: An array of values, Ex: var array = [2, 'cat', false,]
+	var anyItem = Math.floor(Math.random()*arr.length);
+	if (Array.isArray(arr) === false) {
+		throw new Error('Invalid Input');
+	}
+	if (arr[0] === undefined) {
+		throw new Error('Invalid Input');
+	}
+	return arr[anyItem];
 
 	// Output: Any string, number, boolean, objects, array, or function from the given array, ex: 2 or 'cat' or false
 }
@@ -132,9 +209,37 @@ function randomElement() {
  * (array of arrays).
  */
 
-function studentPairs() {
+function studentPairs(studentNames) {
 	// Input: An array of student names, Ex: studentNames = ['Dana', 'Josh', 'Will', 'Dan']
-
+	if (Array.isArray(studentNames) === false) {
+		throw new Error('Invalid Input');
+	}
+	if (studentNames.length === 1) {
+		throw new Error('Invalid Input');
+	}
+	var pairList = [];
+	function shuffle (array) {
+	  var i, x, j;
+	  for (i = array.length; i > 0; i -= 1) {
+	    j = Math.floor(Math.random() * (i + 1))
+	    x = array[i - 1]
+	    array[i - 1] = array[j]
+	    array[j] = x
+	  }
+	  return array;
+	}
+	shuffle(studentNames);
+	console.log(studentNames);
+	while (studentNames.length > 1) {
+		var newPair = studentNames.splice(0, 2);
+		pairList.push(newPair);
+	}
+	console.log(pairList);
+	if (studentNames.length > 0) {
+		var oddMan = studentNames[0];
+		pairList[0].push(oddMan);
+	}
+	return pairList;
 	// Output: An array of arrays, Ex: [['Dana', 'Dan'], ['Josh', 'Will']]
 }
 
@@ -146,9 +251,20 @@ function studentPairs() {
  * If the input is invalid throw an 'Invalid Input' exception.
  */
 
-function sumSquares() {
+function sumSquares(num) {
 	// Input: A number greater than 1, Ex: 3
-
+	if (num <= 0) {
+		throw new Error('Invalid Input');
+	}
+	if (isNaN(num)) {
+		throw new Error('Invalid Input');
+	}
+	total = 0
+	while (num > 0) {
+		total += (Math.pow(num, 2));
+		num -= 1;
+	}
+	return total;
 	// Output: A number, Ex: 14
 }
 
@@ -160,9 +276,22 @@ function sumSquares() {
  * If the input is invalid throw an 'Invalid Input' exception.
  */
 
-function findMadDiff() {
+function findMaxDiff(arr) {
 	// Input: An array of numbers, Ex: numbers = [2, 6, 4, 9, 10]
-
+	if (Array.isArray(arr) === false) {
+		throw new Error('Invalid Input');
+	}
+	if (arr[1] === undefined) {
+		throw new Error('Invalid Input');
+	}
+	var maxDiff = 0;
+	for (var i = 0; i < arr.length; i++) {
+		if (Math.abs(arr[i + 1] - arr[i]) > maxDiff) {
+			maxDiff = Math.abs(arr[i + 1] - arr[i]);
+		}
+	}
+	console.log(maxDiff);
+	return maxDiff;
 	// Ouput: 1 number, Ex: 5
 }
 
@@ -175,9 +304,21 @@ function findMadDiff() {
  * If the input is invalid throw an 'Invalid Input' exception.
  */
 
-function insertDashes() {
+function insertDashes(sentence) {
 	// Input: A string, Ex: 'This is a sentence.'
-
+	if (typeof sentence !== 'string') {
+		throw new Error('Invalid Input');
+	}
+	var wordsArr = [];
+	var newSent = [];
+	var sentArr = sentence.split(/\W/);
+	for (var i = 0; i < sentArr.length; i++) {
+		wordsArr.push(sentArr[i].split(''));
+	}
+	for(var x = 0; x < wordsArr.length; x++) {
+			newSent.push(wordsArr[x].join('-'));
+	}
+	return newSent.join(' ');
 	// Output: A string with dashes inserted between the letters, but not spaces, Ex: 'T-h-i-s i-s a s-e-n-t-e-n-c-e.'
 }
 
@@ -193,9 +334,16 @@ function insertDashes() {
  * If the input is invalid throw an 'Invalid Input' exception.
  */
 
-function mySubstring() {
+function mySubstring(string, a, z) {
+	if (typeof string !== 'string') {
+		throw new Error('Invalid Input');
+	}
 	// Input: A string, Ex: 'abcde'
-
+	var stringList = string.split('');
+	var start = stringList.indexOf(a);
+	var end = stringList.indexOf(z);
+	var substring =stringList.slice(a, (z + 1));
+	return substring.join('');
 	// Output: A substring, given a start and end of original string, Ex: 'cd'
 }
 /*
@@ -209,9 +357,18 @@ function mySubstring() {
  * If the input is invalid throw an 'Invalid Input' exception.
  */
 
-function splitSwap() {
+function splitSwap(arr) {
 	// Input: An array with an odd number of elements, Ex: array = ['mouse', 'cat', 3]
-
+	if (Array.isArray(arr) === false) {
+		throw new Error('Invalid Input')
+	}
+	var splitAt = Math.floor(arr.length/2);
+	var rightHalf = arr.splice(0, splitAt);
+	var leftHalf = arr.splice(0, arr.length);
+	var pushLeft = [];
+	pushLeft.push(leftHalf);
+	var swapped = [].concat.call((leftHalf),(rightHalf));
+	return swapped;
 	// Output: An array with the first half of the original elements placed at the end, Ex: ['cat', 3, 'mouse']
 }
 
@@ -226,10 +383,23 @@ function splitSwap() {
  * If the input is invalid throw an 'Invalid Input' exception.
  */
 
-function smallMultiples() {
+function smallMultiples(n, k) {
+	if (isNaN(k)) {
+		throw new Error('Invalid Input');
+	}
+	if (isNaN(n)) {
+		throw new Error('Invalid Input');
+	}
+	count = 1;
 	// Input: 2 numbers(an integer and a multiplier), Ex:  4, 2
-
-	// Output: 1 number(of multiples smaller than or equal to the integer), Ex: 1
+	for (var i = 1; i < n; i++) {
+		var total = i * k;
+		if (total < n) {
+			count++;
+		}
+	}
+	return count;
+	// Output: 1 number(of multiples smaller than or equal to the integer), Ex: 2
 }
 
 /*
@@ -241,9 +411,29 @@ function smallMultiples() {
  * is invalid throw an 'Invalid Input' exception.
  */
 
-function rot13() {
+function rot13(toRot) {
+	if (toRot.search(/\W/g) !== -1) {
+		throw new Error('Invalid Input');
+	}
+	if (toRot == toRot.toUpperCase()) {
+		throw new Error('Invalid Input');
+	}
 	// Input: A string, Ex: 'WILL'
-
+	var stringArr = toRot.split('');
+	for (var n = 0; n < stringArr.length; n++){
+		var a = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm'];
+		var b = ['n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+		var i = a.indexOf(stringArr[n]);
+		var j = b[i];
+		var k = b.indexOf(stringArr[n]);
+		var l = a[k];
+		if (j === undefined) {
+			stringArr[n] = l;
+		} else {
+			stringArr[n] = j;
+		}
+	}	
+	return stringArr.join('');
 	// Output: An encrypted string, Ex: 'jvyy'
 }
 
@@ -256,10 +446,30 @@ function rot13() {
  * is invalid throw an 'Invalid Input' exception.
  */
 
-function derot13() {
-	// Input: A string, Ex: 'JVYY'
-
-	// Output: An unencrypted string, Ex: 'will'
+function derot13(toDeRot) {
+	if (toDeRot.search(/\W/g) !== -1) {
+		throw new Error('Invalid Input');
+	}
+	if (toDeRot == toDeRot.toUpperCase()) {
+		throw new Error('Invalid Input');
+	}
+	// Input: A string, Ex: 'jvyy'
+	var stringArr = toDeRot.split('');
+	for (var n = 0; n < stringArr.length; n++){
+		var a = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm'];
+		var b = ['n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+		var i = a.indexOf(stringArr[n]);
+		var j = b[i];
+		var k = b.indexOf(stringArr[n]);
+		var l = a[k];
+		if (j === undefined) {
+			stringArr[n] = l;
+		} else {
+			stringArr[n] = j;
+		}
+	}	
+	return stringArr.join('');
+	// Output: An encrypted string, Ex: 'will'
 }
 
 /*
