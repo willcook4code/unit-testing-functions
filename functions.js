@@ -481,10 +481,30 @@ function derot13(toDeRot) {
  * is invalid throw an 'Invalid Input' exception.
  */
 
-function rotn() {
-	// Input: A string and a number, Ex: 'Will', 4
-
-	// Output: ROT-N version of that string, Ex: 'ampp'
+function rotn(string, n) {
+	if (string.search(/\W/g) !== -1) {
+		throw new Error('Invalid Input');
+	}
+	if (string == string.toUpperCase()) {
+		throw new Error('Invalid Input');
+	}
+	var stringArr = string.split('');
+	var newStringArr = [];
+	for (var j = 0; j < stringArr.length; j++){
+		var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+		// Input: A string and a number, Ex: 'Will', 4
+		var stringI = alphabet.indexOf(stringArr[j]);
+		// var over = stringI - 25;
+		var stringN = alphabet[stringI + n];
+		if (stringN === undefined) {
+			var stringO = alphabet[0 + (n + (stringI - 26))];
+			newStringArr.push(stringO);
+		} else {
+		// Output: ROT-N version of that string, Ex: 'ampp'
+			newStringArr.push(stringN);
+		}
+	}
+	return newStringArr.join('');
 }
 
 /*
@@ -496,9 +516,30 @@ function rotn() {
  * If the input is invalid throw an 'Invalid Input' exception.
  */
 
-function findBoth() {
+function findBoth(a, b) {
+	if (b === undefined) {
+		throw new Error('Invalid Input');
+	}
+	if (a.length === 0) {
+		throw new Error('Invalid Input');
+	}
+	if (b.length === 0) {
+		throw new Error('Invalid Input');
+	}
 	// Input: 2 arrays of numbers, Ex: arr1 = [3, 6, 0, 23, 45], arr2 = [23, 23, 0, 2, 98]
-
+	var inBoth = [];
+	for (var i = 0; i < a.length; i++) {
+		for(var j = 0; j < b.length; j++) {
+			if (a[i] === b[j]) {
+				if (inBoth.indexOf(b[j]) > 0) {
+					inBoth.slice(inBoth.indexOf(b[j]), 1);
+				} else {
+					inBoth.push(a[i]);
+				}
+			}
+		}
+	}
+	return inBoth;
 	// Output: 1 combined array, Ex: newArr = [0, 23]
 }
 
@@ -511,10 +552,44 @@ function findBoth() {
  * If the input is invalid throw an 'Invalid Input' exception.
  */
 
-function countBoth() {
+function countBoth(a, b) {
+	if (b === undefined) {
+		throw new Error('Invalid Input');
+	}
+	if (a.length === 0) {
+		throw new Error('Invalid Input');
+	}
+	if (b.length === 0) {
+		throw new Error('Invalid Input');
+	}
 	// Input: 2 arrays, Ex: arr1 = [3, 6, 0, 23, 45], arr2 = [23, 23, 0, 2, 98]
-
-	// Output: A number that is the amount of commonalities in the original 2 arrays.  Ex: 2
+	var inBoth = [];
+	for (var i = 0; i < a.length; i++) {
+		for(var j = 0; j < b.length; j++) {
+			if (a[i] === b[j]) {
+				if (inBoth.indexOf(b[j]) > 0) {
+					inBoth.slice(inBoth.indexOf(b[j]), 1);
+				} else {
+					inBoth.push(a[i]);
+				}
+			}
+		}
+	}
+	var counter = 0;
+	for (var i = 0; i < inBoth.length; i++) {
+		for (var j = 0; j < a.length; j++) {
+			if (inBoth[i] === a[j]) {
+				counter++;
+			}
+		}
+		for (var j = 0; j < b.length; j++) {
+			if (inBoth[i] === b[j]) {
+				counter++;
+			}
+		}
+	}
+	return counter;
+	// Output: A number that is the amount of commonalities in the original 2 arrays.  Ex: 5
 }
 
 /*
