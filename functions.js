@@ -656,9 +656,24 @@ function isDiagonalMatrix() {
  * If the input is invalid throw an 'Invalid Input' exception.
  */
 
-function isAnagram() {
+function isAnagram(a, b) {
+	if (b === undefined) {
+		throw new Error('Invalid Input');
+	}
+	if (a.length === 0) {
+		throw new Error('Invalid Input');
+	}
+	if (b.length === 0) {
+		throw new Error('Invalid Input');
+	}
+	if (a.length !== b.length) {
+		throw new Error('Invalid Input');
+	}
+	if ((typeof a[0] !== 'string') || (typeof b[0] !== 'string')) {
+		throw new Error('Invalid Input');
+	}
 	//Input: 2 arrays of strings, Ex: arr1 = ['cinema', 'shot', 'aba', 'rain']; arr2 = ['iceman', 'hots', 'bab', 'train'];
-
+	
 	//Output: 1 array of booleans, Ex: newArray = [true, true, false, false];
 }
 
