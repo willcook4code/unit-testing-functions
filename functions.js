@@ -673,7 +673,16 @@ function isAnagram(a, b) {
 		throw new Error('Invalid Input');
 	}
 	//Input: 2 arrays of strings, Ex: arr1 = ['cinema', 'shot', 'aba', 'rain']; arr2 = ['iceman', 'hots', 'bab', 'train'];
-	
+	var anagramValidator = [];
+	a.map(function(word, i, array) {
+		let comparator = b[i].split('').sort().join('');
+		if (word.split('').sort().join('') === comparator) {
+			anagramValidator.push(true);
+		} else {
+			anagramValidator.push(false);
+		}
+	});
+	return anagramValidator;
 	//Output: 1 array of booleans, Ex: newArray = [true, true, false, false];
 }
 

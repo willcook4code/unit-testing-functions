@@ -20,4 +20,7 @@ describe('isAnagram', function() {
 	it('should return an array that is the same length as a and b.', function() {
 		expect(functions.isAnagram(['a', 'b', 'c'], ['a', 'b', 'c'])).to.have.length(3);
 	});
+	it('should return an array that contains only boolean values.', function() {
+		expect(functions.isAnagram(['cinema', 'shot', 'aba', 'rain'], ['iceman', 'hots', 'bab', 'train'])).to.deep.equal([true, true, false, false]);
+	});
 });
